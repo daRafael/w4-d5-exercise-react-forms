@@ -5,12 +5,12 @@ graph TD
     App --> Homepage
     App --> Listing
     App --> SingleStudent[SingleStudent *]
-    App --> Form
+    App --> CreateStudent[CreateStudent *]
+    App --> UpdateStudent[UpdateStudent *]
     Homepage --> Counter[Counter *]
     Listing --> StudentsListing[StudentsListing * ]
     StudentsListing --> StudentCard[StudentCard *]
-    Form --> CreateStudent[CreateStudent *]
-    Form --> UpdateStudent[UpdateStudent *]
+
 
     style App stroke:#fff
     style Homepage stroke:#fff
@@ -19,7 +19,6 @@ graph TD
     style StudentsListing stroke:#fff,fill:darkgreen
     style StudentCard stroke:#fff,fill:darkgreen
     style SingleStudent stroke:#fff,fill:darkgreen
-    style Form stroke:#fff,stroke-dasharray: 3 3
     style CreateStudent stroke:#fff,stroke-dasharray:3 3,fill:darkgreen
     style UpdateStudent stroke:#fff,stroke-dasharray:3 3,fill:darkgreen
 
