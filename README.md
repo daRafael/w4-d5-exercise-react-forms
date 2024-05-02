@@ -14,7 +14,7 @@ graph TD
 
     style App stroke:#fff
     style Homepage stroke:#fff
-    style Counter stroke:#fff,stroke-dasharray:3 3,fill:darkgreen
+    style Counter stroke:#fff,fill:darkgreen
     style Listing stroke:#fff
     style StudentsListing stroke:#fff,fill:darkgreen
     style StudentCard stroke:#fff,fill:darkgreen
