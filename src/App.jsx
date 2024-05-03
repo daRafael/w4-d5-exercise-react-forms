@@ -7,11 +7,17 @@ import Navbar from "./components/Navbar";
 // Pages
 import Homepage from "./Homepage";
 import Listing from "./Listing";
+import AddStudent from "./AddStudent";
+/* import UpdateStudent from "./UpdateStudent"; */
 import SingleStudent from "./SingleStudent";
 import Error from "./Error";
 
 function App() {
   const [students, setStudents] = useState(studentsData);
+
+  const createStudent = (student) => {
+    setStudents([...students, student]);
+  };
 
   const deleteItem = (id) => {
     setStudents(students.filter((student) => student.id !== id));
@@ -30,6 +36,14 @@ function App() {
           path="/students/:studentId"
           element={<SingleStudent students={students} />}
         />
+        <Route 
+          path="/addstudent"
+          element={<AddStudent createStudent={createStudent} />}
+        />
+        {/* <Route 
+          path="/students/:studentId/edit"
+          element={<UpdateStudent students={students} />}
+        /> */}
         <Route path="*" element={<Error />} />
       </Routes>
     </>
