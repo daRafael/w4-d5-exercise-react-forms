@@ -1,17 +1,18 @@
-/* import { useState } from "react"
+import { useState } from "react"
 
 import { useParams, Navigate, useNavigate } from "react-router-dom"
 
-export default function UpdateStudent({ students }) {
+export default function UpdateStudent({ students, setStudents }) {
   const {studentId} = useParams();
+  const student = students.find((student) => student.id === studentId);
 
-  students.map((student) => {
-      const [name, setName] = useState(student.name);
-      const [imgURL, setImgURL] = useState(student.img);
-      const [age, setAge] = useState(student.age);
-      const [bootcamp, setBootcamp] = useState(student.bootcamp);
-      const navigate = useNavigate();
-  })
+  if(!student) return <Navigate to='/students' />
+
+  const [name, setName] = useState(student.name);
+  const [imgURL, setImgURL] = useState(student.img);
+  const [age, setAge] = useState(student.age);
+  const [bootcamp, setBootcamp] = useState(student.bootcamp);
+  const navigate = useNavigate();
   
   
 
@@ -42,19 +43,27 @@ export default function UpdateStudent({ students }) {
     alert("Please fill in all fields");
     return;
     }
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      if (!name || !age || !bootcamp) {
+        alert("Please fill in all fields");
+        return;
+    }
 
     const updatedStudents = students.map((student) => {
-    if (student.id === studentId) {
-        return { id: studentId, name, img: imgURL, age, bootcamp };
-    }
-    return student;
-    });
+      if (student.id === studentId) {
+          return { id: studentId, name, img: imgURL, age, bootcamp };
+      }
+      return student;
+      });
+  
+      // update student in the list
+      setStudents(updatedStudents);
+  
+      // redirect to students list
+      navigate("/students");
 
-    // update student in the list
-    setStudents(updatedStudents);
-
-    // redirect to students list
-    navigate("/students");
   };
 
   return (
@@ -109,4 +118,5 @@ export default function UpdateStudent({ students }) {
       </form>
     </div>
   )
-} */
+}
+}

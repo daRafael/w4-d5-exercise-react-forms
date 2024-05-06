@@ -32,18 +32,18 @@ function App() {
           path="/students"
           element={<Listing students={students} deleteItem={deleteItem} />}
         />
-        <Route
-          path="/students/:studentId"
-          element={<SingleStudent students={students} />}
-        />
         <Route 
           path="/addstudent"
           element={<AddStudent createStudent={createStudent} />}
         />
-        {/* <Route 
+        <Route
+          path="/students/:studentId"
+          element={<SingleStudent students={students} />}
+        />
+         <Route 
           path="/students/:studentId/edit"
-          element={<UpdateStudent students={students} />}
-        /> */}
+          element={<UpdateStudent students={students} setStudents={setStudents} />}
+        />
         <Route path="*" element={<Error />} />
       </Routes>
     </>
